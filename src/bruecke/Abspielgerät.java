@@ -1,4 +1,18 @@
 package bruecke;
 
-public abstract class Abspielgerät {
+public class Abspielgerät {
+    IAbspielgerätImplementierer implementierer;
+    public Abspielgerät(IAbspielgerätImplementierer implementierer){
+        this.implementierer = implementierer;
+
+    }
+
+    void play (int track, AbspielDaten daten){
+        implementierer.jumpToTrack(track);
+        implementierer.readData(daten);
+    }
+
+    void off(){
+        implementierer.off();
+    }
 }
